@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Sapir Calculator</title>
+    <style>
+        #num1 {
+            background-color: pink;
+        }
+
+        span {
+            color: red;
+        }
+
+
+        .input-wrapper {
+            position: relative;
+            margin: 20px auto;
+        }
+
+        .form-control {
+            display: block;
+            line-height: 2em;
+            margin: 0;
+            padding-left: 10px;
+            width: 100%;
+            font-size: medium;
+            border: 1px solid #f4f4f4;
+            background-color: #f4f4f4;
+            border-radius: 5px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            font-weight: 500;
+        }
+
+        .form-control:focus {
+            border: 1px solid #2c7ac9;
+        }
+
+        .control-label {
+            display: block;
+            position: absolute;
+            opacity: 0;
+            bottom: 1.9rem;
+            color: #5d5d5d;
+            transition: 0.2s ease-in-out transform;
+            font-size: 12px;
+        }
+
+        .form-control:placeholder-shown+.control-label {
+            visibility: hidden;
+            z-index: -1;
+            transition: 0.2s ease-in-out;
+        }
+
+        .form-control:not(:placeholder-shown)+.control-label,
+        .form-control:focus:not(:placeholder-shown)+.control-label {
+            visibility: visible;
+            z-index: 1;
+            opacity: 1;
+            transform: translateY(-10px);
+            transition: 0.2s ease-in-out transform;
+        }
+
+        /**
+ * Extra Css - not Required
+*/
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #7eb8f2;
+
+        }
+
+        .box {
+            width: 50%;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #fff;
+            margin: 0 auto;
+        }
+
+        .myButton {
+            box-shadow: 0px 1px 9px 0px #3dc21b;
+            background-color: #44c767;
+            border-radius: 30px;
+            border: 3px solid #18ab29;
+            display: inline-block;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 17px;
+            padding: 10px 20px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #2f6627;
+        }
+
+        .myButton:hover {
+            background-color: #5cbf2a;
+        }
+
+        .myButton:active {
+            position: relative;
+            top: 1px;
+        }
+
+        .myimage {
+            width: 300px;
+            height: 300px;
+            padding-left: 550px;
+        }
+
+        h1 {
+            text-shadow: #ebcbf6 2px 2px 0px, #8a171768 4px 4px 0px;
+            color: #C10C4A;
+            padding-left: 550px;
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+<label for="num3">100g:</label>
+<input id="num3" value=100>
+<span>X</span>
+<label for="num1">Calories:</label>
+<input id="num1" />
+
+<span> / </span>
+<label for="num2">Grams:</label>
+<input id="num2" />
+<button onclick="func()">Calculate!</button> -->
+    <div id="header">
+        <img class="myimage" src="https://cdn-icons-png.flaticon.com/512/2738/2738729.png" alt="" srcset="">
+        <h1>Food Calculator.</h1>
+    </div>
+    <div class="box">
+        <div class="input-wrapper">
+            <input type="text" id="input num3" class="form-control" placeholder="100g" value=100>
+            <label for="input num3" class="control-label" value="100">100g</label>
+        </div>
+        <div class="input-wrapper">
+            <input type="text" id="input num1" class="form-control" placeholder="Calories">
+            <label for="input num1" class="control-label">Calories</label>
+        </div>
+        <div class="input-wrapper">
+            <input type="text" id="input num2" class="form-control" placeholder="Grams">
+            <label for="input num2" class="control-label">Grams</label>
+        </div>
+        <button onclick="func()" class="myButton">Calculate!</button>
+        <label for="result">Results:</label>
+        <span id="result"> </span>
+    </div>
+
+
+</body>
+<script>
+    function func() {
+        var num1 = Number(document.getElementById("input num1").value);
+        var num2 = Number(document.getElementById("input num2").value);
+        var num3 = Number(document.getElementById("input num3").value);
+        var result = num3 * num1 / num2;
+
+        document.getElementById("result").innerHTML = result;
+    }
+</script>
+<!-- <script src="index.js"></script> -->
+
+</html>
